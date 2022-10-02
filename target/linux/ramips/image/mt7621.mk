@@ -1862,6 +1862,18 @@ define Device/tplink_eap615-wall-v1
 endef
 TARGET_DEVICES += tplink_eap615-wall-v1
 
+define Device/tplink_mr600-v2-eu
+  $(Device/dsa-migration)
+  DEVICE_MODEL := MR600
+  DEVICE_VARIANT := v2 (EU)
+  DEVICE_PACKAGES := kmod-mt7603 kmod-mt7615e kmod-mt7663-firmware-ap \
+		kmod-usb-net-qmi-wwan uqmi kmod-usb3
+  KERNEL := $(KERNEL_DTB) | uImage lzma
+  TPLINK_BOARD_ID := MR600-V2-EU
+  IMAGE_SIZE := 16384k
+endef
+TARGET_DEVICES += tplink_mr600-v2-eu
+
 define Device/tplink_re350-v1
   $(Device/dsa-migration)
   $(Device/tplink-safeloader)
