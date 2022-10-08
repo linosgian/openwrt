@@ -1864,8 +1864,12 @@ TARGET_DEVICES += tplink_eap615-wall-v1
 
 define Device/tplink_mr600-v2-eu
   $(Device/dsa-migration)
+  $(Device/tplink-v2)
   DEVICE_MODEL := MR600
   DEVICE_VARIANT := v2 (EU)
+  TPLINK_FLASHLAYOUT := 16Mltq
+  TPLINK_HWID := 0xc7500001
+  TPLINK_HWREV := 50
   DEVICE_PACKAGES := kmod-mt7603 kmod-mt7615e kmod-mt7663-firmware-ap \
 		kmod-usb-net-qmi-wwan uqmi kmod-usb3
   KERNEL := $(KERNEL_DTB) | uImage lzma
